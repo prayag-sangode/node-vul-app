@@ -1,8 +1,8 @@
 # Damn Vulnerable NodeJS Application (DVNA)
 
-![dvna-logo](docs/resources/dvna.png)
+![node-vul-app-logo](docs/resources/node-vul-app.png)
 
-Damn Vulnerable NodeJS Application (DVNA) is a simple NodeJS application to demonstrate [**OWASP Top 10 Vulnerabilities**](https://www.owasp.org/index.php/Top_10-2017_Top_10) and guide on fixing and avoiding these vulnerabilities. The [fixes](https://github.com/appsecco/dvna/tree/fixes) branch will contain fixes for the vulnerabilities. Fixes for vulnerabilities OWASssP Top 10 2017 vulnerabilities at [fixes-2017](https://github.com/appsecco/dvna/tree/fixes-2017) branch.
+Damn Vulnerable NodeJS Application (DVNA) is a simple NodeJS application to demonstrate [**OWASP Top 10 Vulnerabilities**](https://www.owasp.org/index.php/Top_10-2017_Top_10) and guide on fixing and avoiding these vulnerabilities. The [fixes](https://github.com/appsecco/node-vul-app/tree/fixes) branch will contain fixes for the vulnerabilities. Fixes for vulnerabilities OWASssP Top 10 2017 vulnerabilities at [fixes-2017](https://github.com/appsecco/node-vul-app/tree/fixes-2017) branch.
 
 The application is powered by commonly used libraries such as [express](https://www.npmjs.com/package/express), [passport](https://www.npmjs.com/package/passport), [sequelize](https://www.npmjs.com/package/sequelize), etc.
 
@@ -16,7 +16,7 @@ The application comes with a **developer friendly comprehensive guidebook** whic
 4. Recommendations for avoid such vulnerabilities
 5. References for learning more
 
-The blog post for this release is at [https://blog.appsecco.com/damn-vulnerable-nodejs-application-dvna-by-appsecco-7d782d36dc1e](https://blog.appsecco.com/damn-vulnerable-nodejs-application-dvna-by-appsecco-7d782d36dc1e)
+The blog post for this release is at [https://blog.appsecco.com/damn-vulnerable-nodejs-application-node-vul-app-by-appsecco-7d782d36dc1e](https://blog.appsecco.com/damn-vulnerable-nodejs-application-node-vul-app-by-appsecco-7d782d36dc1e)
 
 You can setup a local gitbook server to access the documentation using the following commands. The documentation will then be accessible on [http://localhost:4000](http://localhost:4000).
 
@@ -30,7 +30,7 @@ docker run --rm -v `pwd`:/gitbook -p 4000:4000 --name gitbook amontaigu/gitbook 
 Try DVNA using a single command with Docker. This setup uses an SQLite database instead of MySQL.
 
 ```bash
-docker run --name dvna -p 9090:9090 -d appsecco/dvna:sqlite
+docker run --name node-vul-app -p 9090:9090 -d appsecco/node-vul-app:sqlite
 ```
 
 Access the application at [http://127.0.0.1:9090/](http://127.0.0.1:9090/)
@@ -50,14 +50,14 @@ Detailed instructions on setup and requirements are given in the Guide Gitbook
 Clone this repository
 
 ```bash
-git clone https://github.com/appsecco/dvna; cd dvna
+git clone https://github.com/appsecco/node-vul-app; cd node-vul-app
 ```
 
 Create a `vars.env` with the desired database configuration
 
 ```bash
-MYSQL_USER=dvna
-MYSQL_DATABASE=dvna
+MYSQL_USER=node-vul-app
+MYSQL_DATABASE=node-vul-app
 MYSQL_PASSWORD=passw0rd
 MYSQL_RANDOM_ROOT_PASSWORD=yes
 ```
@@ -77,8 +77,8 @@ The application will automatically reload on code changes, so feel free to patch
 Create a file named `vars.env` with the following configuration
 
 ```bash
-MYSQL_USER=dvna
-MYSQL_DATABASE=dvna
+MYSQL_USER=node-vul-app
+MYSQL_DATABASE=node-vul-app
 MYSQL_PASSWORD=passw0rd
 MYSQL_RANDOM_ROOT_PASSWORD=yes
 MYSQL_HOST=mysql-db
@@ -88,13 +88,13 @@ MYSQL_PORT=3306
 Start a MySQL container
 
 ```bash
-docker run --rm --name dvna-mysql --env-file vars.env -d mysql:5.7
+docker run --rm --name node-vul-app-mysql --env-file vars.env -d mysql:5.7
 ```
 
 Start the application using the official image
 
 ```bash
-docker run --rm --name dvna-app --env-file vars.env --link dvna-mysql:mysql-db -p 9090:9090 appsecco/dvna
+docker run --rm --name node-vul-app-app --env-file vars.env --link node-vul-app-mysql:mysql-db -p 9090:9090 appsecco/node-vul-app
 ```
 
 Access the application at http://127.0.0.1:9090/ and start testing!
@@ -104,14 +104,14 @@ Access the application at http://127.0.0.1:9090/ and start testing!
 Clone the repository
 
 ```bash
-git clone https://github.com/appsecco/dvna; cd dvna
+git clone https://github.com/appsecco/node-vul-app; cd node-vul-app
 ```
 
 Configure the environment variables with your database information
 
 ```bash
-export MYSQL_USER=dvna
-export MYSQL_DATABASE=dvna
+export MYSQL_USER=node-vul-app
+export MYSQL_DATABASE=node-vul-app
 export MYSQL_PASSWORD=passw0rd
 export MYSQL_HOST=127.0.0.1
 export MYSQL_PORT=3306
